@@ -14,7 +14,7 @@ class Task(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     updateAt = models.DateTimeField(auto_now=True)
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='task')
 
     def __str__(self) -> str:
         return self.name
