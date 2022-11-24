@@ -11,6 +11,7 @@ from .serializers import UserSerializer, TaskSerializer
 def create_task(request: Request) -> Response:
     # getting data 
     data = request.data
+    print(data)
     serializer = TaskSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
