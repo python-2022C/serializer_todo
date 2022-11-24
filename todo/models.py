@@ -4,6 +4,8 @@ class User(models.Model):
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=12)
 
+    def __str__(self):
+        return f'{self.username} {self.password}'
 
 class Task(models.Model):
     name = models.CharField(max_length=64)
@@ -13,3 +15,6 @@ class Task(models.Model):
     updateAt = models.DateTimeField(auto_now=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.name
