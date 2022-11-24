@@ -7,6 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TaskSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField()
     class Meta:
         model = Task
-        fields = '__all__'
+        fields = ['name', 'description', 'user']
